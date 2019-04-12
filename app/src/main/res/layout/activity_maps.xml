@@ -17,6 +17,7 @@
             />
 
         <Button
+            android:id="@+id/search_butt"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"

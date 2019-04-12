@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int requestcode = 1;
@@ -20,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
     public static TextView resultText;
     Button scan_button;
     Button Map;
+    Button Landmark;
     public static TextView CounterText;
     public int counter;
+
+
 
 
     @Override
@@ -29,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         verifyPermissions();
         resultText = (TextView)findViewById(R.id.rResult);
         scan_button = (Button) findViewById(R.id.sScan);
         Map = (Button) findViewById(R.id.sMap);
+        Landmark = (Button) findViewById(R.id.lLandmark);
         CounterText = (TextView)findViewById(R.id.Counter) ;
         counter = 0;
 
@@ -55,6 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+            }
+        });
+
+        Landmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Database.class));
             }
         });
 
